@@ -1,0 +1,6 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--background); color: var(--foreground); font-size: 13px; }
+button, input, select { font: inherit; }
+button { color: inherit; }
+button:focus-visible, input:focus-visible, select:focus-visible, [tabindex="0"]:focus-visible { outline: 3px solid #73a7e4; outline-offset: 2px; }
+button:disabled { cursor: not-allowed; opacity: .52; }

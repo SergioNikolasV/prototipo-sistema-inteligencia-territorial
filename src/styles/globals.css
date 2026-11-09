@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+/* El orden de estos imports reproduce la cascada original: no reordenar. */
+@import './tokens.css';
+@import './base.css';
+@import './auth.css';
+@import './shell.css';
+@import './map.css';
+@import './indicators.css';
+@import './etl.css';
+@import './quality.css';
+@import './responsive.css';

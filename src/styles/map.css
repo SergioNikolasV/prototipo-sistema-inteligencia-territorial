@@ -1,0 +1,47 @@
+.map-section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; margin-bottom: 9px; }
+.map-section-head h2 { margin: 0; color: #2b3c52; font-size: 12px; font-weight: 700; }
+.map-section-head p { margin: 4px 0 0; color: #7d8b9b; font-size: 9px; }
+.data-demo-label { display: inline-flex; align-items: center; gap: 6px; color: #758499; font-size: 9px; }
+.data-demo-label span { width: 6px; height: 6px; border-radius: 50%; background: #d9a347; }
+.map-card { overflow: hidden; border: 1px solid #e1e7ee; border-radius: 9px; background: #fff; box-shadow: 0 2px 5px rgba(28, 48, 75, .025); }
+.map-toolbar { position: relative; z-index: 2; display: flex; height: 44px; align-items: center; gap: 14px; padding: 0 12px; border-bottom: 1px solid #e9edf2; background: #fff; }
+.map-breadcrumb { display: flex; align-items: center; gap: 6px; color: #8090a2; font-size: 10px; }
+.map-breadcrumb > svg:first-child { color: #4f6b89; }
+.map-breadcrumb strong { color: #44586f; font-weight: 650; }
+.layer-switch { display: flex; height: 28px; align-items: center; margin-left: auto; padding: 2px; border: 1px solid #e4e8ee; border-radius: 5px; background: #f6f8fa; }
+.layer-switch button { height: 22px; padding: 0 9px; border: 0; border-radius: 4px; background: transparent; color: #6e7e91; font-size: 9px; cursor: pointer; }
+.layer-switch button.selected { background: #fff; box-shadow: 0 1px 3px rgba(25, 45, 70, .12); color: #1c3f68; font-weight: 650; }
+.zoom-tools { display: flex; height: 27px; align-items: center; gap: 4px; padding: 0 3px; border: 1px solid #e4e8ee; border-radius: 5px; }
+.zoom-tools button { display: grid; width: 24px; height: 23px; place-items: center; border: 0; border-radius: 3px; background: transparent; color: #60738a; cursor: pointer; }
+.zoom-tools button:hover { background: #edf2f8; color: var(--navy); }
+.zoom-tools span { min-width: 30px; color: #77869a; text-align: center; font-size: 8px; }
+.map-canvas { position: relative; min-height: 408px; overflow: hidden; background-color: #f4f7fa; background-image: radial-gradient(ellipse at 51% 49%, rgba(230, 238, 246, .5), transparent 59%), linear-gradient(rgba(255,255,255,.24) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.24) 1px, transparent 1px); background-size: auto, 34px 34px, 34px 34px; }
+.colombia-map { position: absolute; inset: -1% 12% 0 15%; display: flex; align-items: center; justify-content: center; }
+.colombia-map svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.map-island-dot { position: absolute; top: 29%; left: 2.5%; width: 8px; height: 8px; border: 2px solid #fff; border-radius: 50%; background: #d8942b; box-shadow: 0 0 0 1px #9f6a20; }
+.map-island-label { position: absolute; top: 27%; left: 4.2%; color: #64768b; font-size: 8px; }
+.map-coordinates { position: absolute; top: 11px; left: 13px; display: flex; flex-direction: column; gap: 3px; color: #8796a6; font-size: 8px; }
+.map-source-stamp { position: absolute; top: 11px; right: 13px; display: flex; align-items: center; gap: 5px; color: #7a8a9b; font-size: 8px; }
+.map-tooltip { position: absolute; top: 54px; right: 19px; width: 219px; padding: 11px; border: 1px solid #e0e6ed; border-radius: 7px; background: rgba(255, 255, 255, .97); box-shadow: 0 6px 20px rgba(27, 48, 75, .11); }
+.tooltip-top { display: flex; align-items: flex-start; gap: 7px; padding-bottom: 9px; border-bottom: 1px solid #edf0f4; }
+.tooltip-dot { width: 8px; height: 8px; flex: 0 0 auto; margin-top: 3px; border-radius: 50%; background: #d75a52; box-shadow: 0 0 0 3px #f9e8e5; }
+.tooltip-top > div { display: flex; min-width: 0; flex: 1; flex-direction: column; gap: 3px; }
+.tooltip-top strong { overflow: hidden; color: #293d55; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.tooltip-top small { color: #8290a0; font-size: 8px; }
+.tooltip-top button { display: grid; width: 20px; height: 20px; place-items: center; border: 0; border-radius: 4px; background: transparent; color: #8090a0; cursor: pointer; }
+.tooltip-top button:hover { background: #f0f3f6; }
+.tooltip-metrics { display: flex; flex-direction: column; gap: 7px; padding: 10px 0 8px; }
+.tooltip-metrics > div { display: flex; justify-content: space-between; gap: 8px; }
+.tooltip-metrics span { color: #728297; font-size: 8px; }
+.tooltip-metrics strong { color: #344961; font-size: 9px; font-weight: 680; white-space: nowrap; }
+.text-high { color: #cb4a44 !important; }
+.tooltip-link { display: inline-flex; align-items: center; gap: 5px; padding: 3px 0 0; border: 0; background: transparent; color: #2c5a8b; font-size: 8px; font-weight: 650; cursor: pointer; }
+.map-attribution { position: absolute; bottom: 9px; left: 12px; color: #91a0af; font-size: 8px; }
+.map-legend { position: absolute; right: 13px; bottom: 12px; width: 177px; padding: 10px 11px; border: 1px solid rgba(224, 230, 237, .95); border-radius: 7px; background: rgba(255, 255, 255, .96); box-shadow: 0 3px 12px rgba(31, 50, 75, .06); }
+.legend-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 7px; }
+.legend-head strong { color: #3a4b61; font-size: 9px; }
+.legend-head > span { color: #93a0ae; font-size: 7px; }
+.map-legend > div:not(.legend-head) { display: flex; align-items: center; gap: 7px; padding: 3px 0; color: #596b80; font-size: 8px; }
+.map-legend > div:not(.legend-head) small { margin-left: auto; color: #8592a1; font-size: 7px; }
+.severity-dot, .legend-dot { width: 7px; height: 7px; flex: 0 0 auto; border-radius: 50%; }
+.severity-critical { background: #dc2626; }.severity-medium { background: #d97706; }.severity-low { background: #16a34a; }
