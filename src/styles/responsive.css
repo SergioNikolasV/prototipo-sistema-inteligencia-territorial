@@ -3,115 +3,86 @@
   .colombia-map { inset: -2% 15% -2% 18%; }
 }
 @media (max-width: 1150px) {
-  .main-inner { padding-right: 20px; padding-left: 20px; }
-  .sidebar { width: 238px; flex-basis: 238px; }
-  .topbar { gap: 20px; padding-right: 17px; padding-left: 17px; }
+  .main-inner { padding-right: 22px; padding-left: 22px; }
+  .sidebar { width: 248px; flex-basis: 248px; }
+  .topbar { gap: 16px; padding-right: 18px; padding-left: 18px; }
   .topbar-brand { flex-basis: 220px; }
   .user-copy span { max-width: 125px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .map-canvas { min-height: 370px; }
   .colombia-map { inset: 0 12% 0 13%; }
 }
 @media (max-width: 900px) {
-  .topbar { height: 60px; gap: 14px; }
+  .topbar { height: 62px; gap: 12px; }
   .topbar-brand { flex-basis: auto; }
   .brand-compact .brand-copy { display: none; }
-  .app-frame { min-height: calc(100vh - 60px); }
-  .sidebar { position: fixed; z-index: 40; top: 60px; bottom: 0; left: 0; height: calc(100vh - 60px); transform: translateX(-105%); transition: transform .2s ease; box-shadow: 7px 0 25px rgba(22, 43, 68, .12); }
+  .app-frame { min-height: calc(100vh - 118px); }
+  .sidebar {
+    position: fixed;
+    z-index: 45;
+    top: 118px;
+    bottom: 0;
+    left: 0;
+    height: calc(100vh - 118px);
+    transform: translateX(-105%);
+    transition: transform .2s ease;
+    box-shadow: 7px 0 25px rgba(9, 67, 181, .16);
+  }
   .sidebar.sidebar-open { transform: translateX(0); }
-  .sidebar-scrim { position: fixed; z-index: 39; inset: 60px 0 0; border: 0; background: rgba(16, 30, 49, .3); }
+  .sidebar-scrim { position: fixed; z-index: 44; inset: 118px 0 0; border: 0; background: rgba(0, 0, 0, .4); }
   .main-content { width: 100%; }
-  .main-inner { padding: 20px 22px; }
-  .app-footer { padding-right: 22px; padding-left: 22px; }
-  .mobile-menu-button { display: grid; width: 27px; height: 27px; place-items: center; border: 1px solid #e3e8ef; border-radius: 5px; background: #fff; color: #536a83; }
+  .main-inner { padding: 20px; }
+  .mobile-menu-button {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1.5px solid var(--gov-cobalt);
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--gov-cobalt);
+    cursor: pointer;
+  }
   .map-breadcrumb { margin-right: auto; }
   .logout-button span { display: none; }
-  .logout-button { width: 32px; height: 32px; justify-content: center; padding: 0; }
+  .logout-button { width: 36px; height: 36px; justify-content: center; padding: 0; }
   .topbar-actions { gap: 10px; }
   .global-search-wrap { flex: 1; }
 }
 @media (max-width: 680px) {
+  .gov-topbar-inner { padding: 0 14px; }
   .login-screen { padding: 28px 14px; }
   .login-card { padding: 27px 22px 20px; }
   .login-footnote { flex-direction: column; }
   .topbar { gap: 10px; padding: 0 12px; }
-  .topbar-brand { flex: 0 0 36px; }
-  .global-search-wrap { height: 34px; gap: 6px; padding: 0 8px; }
-  .global-search-wrap input { font-size: 9px; }
-  .global-search-wrap kbd { display: none; }
+  .topbar-brand { flex: 0 0 38px; }
+  .global-search-wrap { height: 38px; padding: 0 4px 0 12px; }
   .topbar-actions { gap: 6px; }
   .topbar-divider, .user-copy, .profile-chevron, .notification-button { display: none; }
   .user-profile { gap: 0; }
-  .main-inner { padding: 17px 13px 20px; }
-  .page-heading { min-height: 0; align-items: flex-start; margin-bottom: 15px; }
-  .page-heading h1 { font-size: 20px; }
-  .page-heading p { max-width: 320px; line-height: 1.45; }
-  .heading-actions { align-self: center; }
+  .main-inner { padding: 16px 14px 22px; }
+  .page-heading { min-height: 0; align-items: flex-start; flex-direction: column; margin-bottom: 16px; }
+  .page-heading h1 { font-size: 1.35rem; }
   .live-meta { display: none; }
-  .export-button { padding: 0 8px; font-size: 9px; }
-  .map-section-head { align-items: flex-start; }
-  .data-demo-label { max-width: 100px; justify-content: flex-end; text-align: right; line-height: 1.4; }
-  .map-toolbar { height: 42px; gap: 7px; padding: 0 8px; }
-  .map-breadcrumb { gap: 4px; font-size: 8px; }
-  .layer-switch button { padding: 0 6px; font-size: 8px; }
-  .zoom-tools { gap: 0; }
-  .zoom-tools button { width: 21px; }
-  .zoom-tools span { min-width: 27px; font-size: 7px; }
-  .map-canvas { min-height: 365px; }
-  .colombia-map { inset: 4% 3% 9% 0; }
-  .map-tooltip { top: 45px; right: 8px; width: 185px; padding: 9px; }
-  .map-tooltip-initial { display: none; }
-  .map-legend { right: 8px; bottom: 8px; width: 157px; padding: 8px; }
-  .map-island-label, .map-island-dot { display: none; }
-  .map-source-stamp { right: 8px; top: 9px; font-size: 7px; }
-  .metrics-grid, .quality-dimensions { gap: 7px; }
-  .metric-card { min-height: 112px; padding: 10px 9px; }
-  .metric-icon { width: 26px; height: 26px; }
-  .metric-icon svg { width: 15px; height: 15px; }
-  .metric-trend { top: 11px; right: 7px; font-size: 7px; }
-  .metric-card > p { margin-top: 8px; font-size: 8px; line-height: 1.35; }
-  .metric-card > strong { font-size: 16px; }
-  .metric-note { font-size: 7px; line-height: 1.35; }
+  .metrics-grid, .quality-dimensions { grid-template-columns: 1fr; gap: 10px; }
   .analytics-grid { grid-template-columns: 1fr; }
-  .chart-panel, .trend-panel { padding: 13px 12px; }
-  .bar-label { font-size: 6px; }
-  .privacy-footnote { align-items: flex-start; line-height: 1.45; }
-  .privacy-footnote button { white-space: nowrap; }
-  .app-footer { padding: 11px 13px 14px; }
   .etl-queue-badge { display: none; }
-  .etl-upload-panel { padding: 12px; }
-  .etl-panel-heading { gap: 8px; }
-  .etl-title-icon { width: 30px; height: 30px; }
+  .etl-upload-panel { padding: 16px; }
   .supported-files { display: none; }
-  .dropzone { min-height: 145px; }
-  .etl-form-row { align-items: stretch; flex-direction: column; gap: 12px; }
-  .dataset-select { width: 100%; max-width: 100%; }
-  .etl-process-area { align-items: stretch; flex-direction: column; gap: 9px; }
-  .etl-process-area p { font-size: 8px; }
+  .etl-form-row { align-items: stretch; flex-direction: column; gap: 14px; }
+  .dataset-select { width: 100%; }
+  .etl-process-area { align-items: stretch; flex-direction: column; gap: 10px; }
   .process-button { width: 100%; }
-  .privacy-banner { grid-template-columns: auto 1fr; gap: 9px; padding: 12px; }
-  .privacy-banner-icon { width: 32px; height: 32px; }
+  .privacy-banner { grid-template-columns: auto 1fr; gap: 10px; padding: 14px; }
   .privacy-banner-status { grid-column: 2; justify-self: start; }
-  .privacy-banner-stats { grid-column: 1 / -1; gap: 6px; }
-  .privacy-banner-stats span { font-size: 7px; line-height: 1.35; }
-  .privacy-banner-stats strong { font-size: 8px; line-height: 1.4; }
-  .etl-history-panel > .panel-header, .audit-panel > .panel-header { align-items: flex-start; padding-right: 11px; padding-left: 11px; }
-  .etl-history-panel > .panel-header .outline-button { min-height: 29px; padding: 0 7px; font-size: 8px; }
-  .etl-history-panel > .panel-header .outline-button svg { width: 13px; }
+  .privacy-banner-stats { grid-column: 1 / -1; grid-template-columns: 1fr; gap: 8px; }
+  .etl-history-panel > .panel-header, .audit-panel > .panel-header { flex-direction: column; align-items: flex-start; padding-right: 14px; padding-left: 14px; }
   .data-table { min-width: 740px; }
   .audit-table { min-width: 740px; }
   .quality-overview { grid-template-columns: 1fr; }
-  .quality-score-panel { min-height: 178px; padding: 17px; }
-  .quality-gauge { width: 112px; height: 112px; }
-  .quality-gauge::before { inset: 8px; }
-  .gauge-center strong { font-size: 24px; }
-  .gauge-scale { right: 17px; bottom: 17px; left: 17px; }
-  .quality-side-note { min-height: 140px; }
-  .quality-dimensions .metric-card { min-height: 106px; }
-  .quality-method-note { grid-template-columns: 1fr auto; gap: 8px; }
-  .quality-method-note p { grid-column: 1 / -1; grid-row: 2; }
-  .quality-method-note button { grid-column: 2; grid-row: 1; }
-  .table-footer { padding-right: 10px; padding-left: 10px; }
-  .exception-modal { padding: 16px; }
+  .gov-back-to-top span { display: none; }
+  .gov-back-to-top { width: 42px; height: 42px; padding: 0; justify-content: center; }
+  .exception-modal { padding: 18px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }

@@ -1,13 +1,13 @@
 import type { BreachLevel } from "@/domain/indicators/breach-level"
 
 export const BREACH_COLORS: Record<BreachLevel, string> = {
-  high: "#DC2626",
-  medium: "#D97706",
-  low: "#16A34A",
+  high: "#A80521",
+  medium: "#B56E00",
+  low: "#068460",
 }
 
 export const MAP_COLORS = {
-  selected: "#0F2C59",
-  hovered: "#E5A23C",
+  selected: "#0943B5",
+  hovered: "#FFAB00",
   stroke: "#FFFFFF",
 } as const
