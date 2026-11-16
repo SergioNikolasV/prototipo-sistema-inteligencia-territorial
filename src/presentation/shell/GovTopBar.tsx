@@ -10,7 +10,7 @@ export function GovTopBar() {
     <div className="gov-topbar" role="region" aria-label="Barra superior del Estado Colombiano">
       <div className="gov-topbar-inner">
         <a
-          href="https://www.gov.co/home/"
+          href="https://www.gov.co/"
           target="_blank"
           rel="noopener noreferrer"
           className="gov-logo-link"

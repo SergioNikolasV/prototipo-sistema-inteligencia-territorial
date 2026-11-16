@@ -83,6 +83,19 @@
   .gov-back-to-top span { display: none; }
   .gov-back-to-top { width: 42px; height: 42px; padding: 0; justify-content: center; }
   .exception-modal { padding: 18px; }
+  /* Visor territorial en celular vertical: barra apilada, mapa con gestos y popup al tocar */
+  .map-toolbar { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 10px; padding: 12px 14px; }
+  .map-toolbar .layer-switch { grid-column: 1 / -1; width: 100%; margin-left: 0; }
+  .map-toolbar .layer-switch button { flex: 1; }
+  .map-toolbar .zoom-tools { grid-column: 1 / -1; width: 100%; justify-content: space-between; padding: 0 10px; }
+  .map-canvas { display: flex; min-height: 0; flex-direction: column; }
+  .map-source-stamp { font-size: 0.6875rem; }
+  .colombia-map { position: relative; inset: auto; height: 420px; margin-top: 46px; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; }
+  .colombia-map-pan { display: flex; position: relative; width: 100%; height: 100%; align-items: center; justify-content: center; transform-origin: 0 0; will-change: transform; }
+  .map-tooltip { z-index: 3; top: 50px; right: 14px; left: 14px; width: auto; max-width: 280px; margin: 0 auto; }
+  .map-tooltip-initial { display: none; }
+  .map-attribution { position: static; padding: 8px 14px 4px; }
+  .map-legend { position: static; width: auto; margin: 6px 14px 14px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }

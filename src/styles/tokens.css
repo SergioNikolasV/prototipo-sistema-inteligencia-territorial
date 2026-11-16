@@ -804,3 +804,265 @@ html.gov-high-contrast .gov-a11y-btn.active span,
 html.gov-high-contrast .gov-a11y-btn.active svg {
   color: #000000 !important;
 }
+
+/* ==========================================================================
+   RITE & WCAG AAA: Textos Secundarios, Tooltips y Escalado Fluido (A+)
+   ========================================================================== */
+
+/* 1. Buscador superior en Alto Contraste */
+html.gov-high-contrast input::placeholder,
+html.gov-high-contrast textarea::placeholder {
+  color: #ffffff !important;
+  opacity: 0.9 !important;
+}
+
+html.gov-high-contrast .global-search-wrap button,
+html.gov-high-contrast .topbar form button,
+html.gov-high-contrast .topbar [class*="search"] button {
+  background: #ffab00 !important;
+  background-color: #ffab00 !important;
+  color: #000000 !important;
+  border: 1.5px solid #ffab00 !important;
+}
+
+html.gov-high-contrast .global-search-wrap button svg,
+html.gov-high-contrast .topbar form button svg,
+html.gov-high-contrast .topbar [class*="search"] button svg {
+  color: #000000 !important;
+}
+
+/* 2. Miga de pan actual ("> Visor GIS") en Alto Contraste */
+html.gov-high-contrast .gov-breadcrumb,
+html.gov-high-contrast .gov-breadcrumb span,
+html.gov-high-contrast .gov-breadcrumb li,
+html.gov-high-contrast [aria-label*="miga" i] span,
+html.gov-high-contrast [aria-label*="breadcrumb" i] span {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* 3. Nota inferior del mapa y textos SVG en Alto Contraste */
+html.gov-high-contrast .map-canvas span,
+html.gov-high-contrast .map-canvas p,
+html.gov-high-contrast .map-canvas small,
+html.gov-high-contrast .map-card [class*="source"],
+html.gov-high-contrast .map-card [class*="footnote"],
+html.gov-high-contrast .map-card [class*="caption"],
+html.gov-high-contrast .map-card [class*="attribution"],
+html.gov-high-contrast .app-shell svg text,
+html.gov-high-contrast .app-shell svg tspan {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* 4. Pie de la barra lateral ("Prototipo de demostración") en Alto Contraste */
+html.gov-high-contrast .sidebar-version,
+html.gov-high-contrast .sidebar-version *,
+html.gov-high-contrast .app-shell .sidebar footer,
+html.gov-high-contrast .app-shell .sidebar footer *,
+html.gov-high-contrast .app-shell .sidebar [class*="version"],
+html.gov-high-contrast .app-shell .sidebar [class*="foot"] {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* 5. Escalado fluido (A+) en controles de zoom (+ 100% -) */
+.map-toolbar {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.zoom-tools {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.35rem !important;
+  width: auto !important;
+  min-width: fit-content !important;
+  max-width: none !important;
+  height: auto !important;
+  padding: 0.25rem 0.65rem !important;
+  flex-shrink: 0 !important;
+}
+
+.zoom-tools button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  min-width: 1.5rem !important;
+  height: 1.5rem !important;
+  padding: 0 0.2rem !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
+}
+
+.zoom-tools .zoom-percent-btn {
+  min-width: 3.1rem !important;
+  padding: 0 0.25rem !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+}
+
+/* 6. Escalado fluido (A+) en tarjeta del municipio y leyenda del mapa */
+.map-tooltip {
+  width: auto !important;
+  min-width: 17.5rem !important;
+  max-width: min(23rem, calc(100% - 2rem)) !important;
+}
+
+.map-tooltip .tooltip-metrics > div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1rem !important;
+}
+
+.map-tooltip .tooltip-metrics > div > span {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+}
+
+.map-tooltip .tooltip-metrics > div > strong {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+.map-legend {
+  width: auto !important;
+  min-width: 14.5rem !important;
+  max-width: min(20rem, calc(100% - 2rem)) !important;
+}
+
+.map-legend .legend-head,
+.map-legend > div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0.75rem !important;
+}
+
+/* Solo el subtítulo "% no cubierta" queda en una línea, no el tooltip */
+.map-legend small,
+.map-legend .legend-head > span {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+/* 7. Área interactiva completa del mapa (arrastre y rueda en todo el lienzo) */
+.map-canvas {
+  position: relative;
+  overflow: hidden;
+}
+
+.colombia-map,
+.colombia-map-pan,
+.colombia-map-stage {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.colombia-map {
+  cursor: grab !important;
+}
+
+.colombia-map.is-grabbing,
+.colombia-map.is-grabbing * {
+  cursor: grabbing !important;
+}
+
+.colombia-map svg path {
+  cursor: pointer;
+}
+
+.colombia-map.is-grabbing svg path {
+  cursor: grabbing !important;
+}
+
+.map-coordinates,
+.map-source-stamp,
+.map-attribution,
+.map-island-dot,
+.map-island-label {
+  pointer-events: none !important;
+}
+
+/* 8. Blindaje definitivo de salto de línea y contraste en tooltips explicativos */
+.gov-tooltip-popover,
+.gov-tooltip-popover *,
+.map-legend .gov-tooltip-popover,
+.map-legend .gov-tooltip-popover *,
+.map-tooltip .gov-tooltip-popover,
+.map-tooltip .gov-tooltip-popover * {
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+}
+
+.gov-tooltip-popover .gov-tooltip-title {
+  color: #ffffff !important;
+}
+
+html.gov-high-contrast .gov-tooltip-trigger {
+  color: #ffab00 !important;
+}
+
+html.gov-high-contrast .gov-tooltip-popover {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 1.5px solid #ffab00 !important;
+}
+
+html.gov-high-contrast .gov-tooltip-popover .gov-tooltip-title {
+  color: #ffab00 !important;
+}
+
+html.gov-high-contrast .gov-tooltip-popover .gov-tooltip-desc {
+  color: #ffffff !important;
+}
+/* ==========================================================================
+   Botón unificado de descarga por fila en tablas (/etl y /calidad)
+   ========================================================================== */
+.gov-row-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border-radius: var(--radius-sm, 8px);
+  border: 1px solid var(--gov-border, #d0d7de);
+  background-color: var(--gov-surface, #ffffff);
+  color: var(--gov-text-primary, #1b2a4a);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.gov-row-download-btn:hover,
+.gov-row-download-btn:focus-visible {
+  background-color: var(--gov-cobalt-tint, #f4f7fd);
+  border-color: var(--gov-cobalt, #0943b5);
+  color: var(--gov-cobalt, #0943b5);
+}
+
+html.gov-high-contrast .gov-row-download-btn {
+  background-color: #000000 !important;
+  border: 1.5px solid #ffab00 !important;
+  color: #ffab00 !important;
+}
+
+html.gov-high-contrast .gov-row-download-btn:hover,
+html.gov-high-contrast .gov-row-download-btn:focus-visible {
+  background-color: #ffab00 !important;
+  color: #000000 !important;
+}
+
+html.gov-high-contrast .gov-row-download-btn:hover svg,
+html.gov-high-contrast .gov-row-download-btn:focus-visible svg {
+  color: #000000 !important;
+}

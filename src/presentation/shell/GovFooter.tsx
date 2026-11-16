@@ -48,7 +48,7 @@ export function GovFooter() {
               <h3>Enlaces de interés</h3>
               <ul>
                 <li>
-                  <a href="https://www.gov.co/home/" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.gov.co/" target="_blank" rel="noopener noreferrer">
                     Portal Único del Estado Colombiano <GovExternalLinkIcon size={13} />
                   </a>
                 </li>
@@ -70,7 +70,7 @@ export function GovFooter() {
         <div className="gov-footer-bottom">
           <div className="gov-footer-bottom-inner">
             <a
-              href="https://www.gov.co/home/"
+              href="https://www.gov.co/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Portal GOV.CO"
