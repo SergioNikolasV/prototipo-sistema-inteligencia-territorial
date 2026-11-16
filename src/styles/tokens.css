@@ -1066,3 +1066,90 @@ html.gov-high-contrast .gov-row-download-btn:hover svg,
 html.gov-high-contrast .gov-row-download-btn:focus-visible svg {
   color: #000000 !important;
 }
+/* ==========================================================================
+   Tablas Responsivas: Deslizamiento horizontal táctil en móvil (/etl y /calidad)
+   ========================================================================== */
+.app-shell .main-content .panel {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.app-shell .main-content .table-scroll {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto !important;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gov-cobalt, #0943b5) var(--gov-cobalt-tint, #f4f7fd);
+  padding-bottom: 0.375rem;
+}
+
+.app-shell .main-content .table-scroll::-webkit-scrollbar {
+  height: 0.45rem;
+}
+
+.app-shell .main-content .table-scroll::-webkit-scrollbar-track {
+  background: var(--gov-cobalt-tint, #f4f7fd);
+  border-radius: 9999px;
+}
+
+.app-shell .main-content .table-scroll::-webkit-scrollbar-thumb {
+  background: var(--gov-cobalt, #0943b5);
+  border-radius: 9999px;
+}
+
+/* Mantiene el ancho completo en escritorio y activa el scroll sin aplastar columnas en celular */
+.app-shell .main-content .table-scroll > table.data-table {
+  width: 100%;
+  min-width: 50rem;
+  border-collapse: collapse;
+}
+
+/* Indicador visual fijo y ajuste de cabecera/pie en pantallas móviles y tablet */
+@media (max-width: 900px) {
+  .app-shell .main-content .table-scroll::before {
+    content: "Desliza la tabla hacia los lados para ver todas las columnas ↔";
+    position: sticky;
+    left: 0;
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--gov-cobalt, #0943b5);
+    background-color: var(--gov-cobalt-tint, #f4f7fd);
+    border: 1px solid var(--gov-cobalt-soft, #e6effd);
+    border-radius: 6px;
+    padding: 0.25rem 0.625rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .app-shell .main-content .panel-header,
+  .app-shell .main-content .table-footer {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+}
+
+/* Compatibilidad con Modo Alto Contraste (WCAG AAA) */
+html.gov-high-contrast .app-shell .main-content .table-scroll {
+  scrollbar-color: #ffab00 #141414;
+}
+
+html.gov-high-contrast .app-shell .main-content .table-scroll::-webkit-scrollbar-track {
+  background: #141414;
+}
+
+html.gov-high-contrast .app-shell .main-content .table-scroll::-webkit-scrollbar-thumb {
+  background: #ffab00;
+}
+
+@media (max-width: 900px) {
+  html.gov-high-contrast .app-shell .main-content .table-scroll::before {
+    background-color: #000000 !important;
+    color: #ffab00 !important;
+    border: 1.5px solid #ffab00 !important;
+  }
+}
