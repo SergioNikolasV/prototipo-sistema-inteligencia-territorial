@@ -1,44 +1,1155 @@
-@custom-variant dark (&:is(.dark *));
+/* ==========================================================================
+   Tokens Institucionales · Kit UI GOV.CO v9.2 (WCAG 2.1 AA / AAA)
+   ========================================================================== */
+:root {
+  /* Paleta institucional principal GOV.CO */
+  --gov-cobalt: #0943b5;
+  --gov-cobalt-hover: #062f82;
+  --gov-cobalt-dark: #003399;
+  --gov-cobalt-soft: #e6effd;
+  --gov-cobalt-tint: #f4f7fd;
+  --gov-marine: #3366cc;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
+  /* Neutros y superficies con contraste >= 4.5:1 */
+  --gov-white: #ffffff;
+  --gov-bg: #f6f8fc;
+  --gov-surface: #ffffff;
+  --gov-border: #d0d7de;
+  --gov-text-primary: #1b2a4a;
+  --gov-text-body: #333333;
+  --gov-text-muted: #4b4b4b;
+
+  /* Colores semánticos GOV.CO */
+  --gov-success: #068460;
+  --gov-success-bg: #e6f5ef;
+  --gov-success-border: #9bd8be;
+
+  --gov-warning: #b56e00;
+  --gov-warning-text: #7a4f00;
+  --gov-warning-bg: #fff8e6;
+  --gov-warning-border: #f0c36d;
+  --gov-amber: #ffab00;
+
+  --gov-danger: #a80521;
+  --gov-danger-bg: #fdecef;
+  --gov-danger-border: #f3b2be;
+
+  /* Tipografía oficial GOV.CO */
+  --font-heading: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "Verdana", "Nunito Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Alias de compatibilidad para vistas secundarias */
+  --bg: var(--gov-bg);
+  --surface: var(--gov-surface);
+  --border: var(--gov-border);
+  --text: var(--gov-text-primary);
+  --muted: var(--gov-text-muted);
+  --primary: var(--gov-cobalt);
+  --primary-hover: var(--gov-cobalt-hover);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-pill: 9999px;
 }
 
-:root {
-  color-scheme: light;
-  --navy: #0f2c59;
-  --navy-deep: #0a2146;
-  --navy-soft: #eaf0f8;
-  --background: #f8fafc;
-  --foreground: #152238;
-  --card: #ffffff;
-  --card-foreground: #152238;
-  --primary: #0f2c59;
-  --primary-foreground: #ffffff;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --border: #e2e8f0;
-  --input: #dce3ec;
-  --ring: #5a83b4;
-  --radius: 0.7rem;
-  --green: #16845b;
-  --red: #c94242;
-  --amber: #c67d12;
-  font-family: Inter, Roboto, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+/* ==========================================================================
+   Tipografía y Escala Oficial · Kit UI GOV.CO v9.2
+   (Nunito Sans para títulos/controles · Verdana para cuerpo y lectura)
+   ========================================================================== */
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 0.9375rem; /* 15px base de lectura */
+  line-height: 1.55;
+  color: var(--gov-text-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Encabezados y jerarquía de títulos en Nunito Sans */
+.app-shell h1,
+.app-shell .page-title {
+  font-family: var(--font-heading);
+  font-size: 2rem; /* 32px · H1 GOV.CO */
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.app-shell h2,
+.app-shell .panel-header h2,
+.app-shell .map-section-head h2,
+.app-shell .quality-score-copy h2 {
+  font-family: var(--font-heading);
+  font-size: 1.375rem; /* 22px · H2 GOV.CO */
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.app-shell h3,
+.app-shell .gov-footer-col h3 {
+  font-family: var(--font-heading);
+  font-size: 1.125rem; /* 18px · H3 GOV.CO */
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* Barra superior (.topbar) */
+.app-shell .topbar strong {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 800;
+}
+
+.app-shell .topbar span,
+.app-shell .topbar small {
+  font-family: var(--font-body);
+  font-size: 0.8125rem; /* 13px · Subtítulo entidad y cargo */
+  line-height: 1.4;
+}
+
+/* Menú lateral (.sidebar) y selector territorial */
+.app-shell .sidebar .workspace-switcher strong,
+.app-shell .sidebar .privacy-card strong {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 800;
+}
+
+.app-shell .sidebar .workspace-switcher span,
+.app-shell .sidebar .privacy-card span,
+.app-shell .sidebar .sidebar-version {
+  font-family: var(--font-body);
+  font-size: 0.8125rem; /* 13px · "Colombia · Nacional" y descripciones */
+  line-height: 1.45;
+}
+
+.app-shell .sidebar .sidebar-section-label {
+  font-family: var(--font-heading);
+  font-size: 0.78125rem; /* 12.5px */
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.app-shell .sidebar .sidebar-section-heading span {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem; /* 15px · "Filtros avanzados" */
+  font-weight: 800;
+}
+
+.app-shell .sidebar .nav-item,
+.app-shell .sidebar .help-link span {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 700;
+}
+
+.app-shell .sidebar label {
+  font-family: var(--font-heading);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 700;
+}
+
+/* Cuerpos de texto, subtítulos de panel y descripciones en Verdana */
+.app-shell .main-content p,
+.app-shell .panel-header p,
+.app-shell .map-section-head p,
+.app-shell .quality-score-copy p,
+.app-shell .quality-side-note p,
+.app-shell .quality-method-note p,
+.app-shell .metric-note,
+.app-shell .gov-footer-entity p {
+  font-family: var(--font-body);
+  font-size: 0.875rem; /* 14px · Párrafo estándar GOV.CO */
+  line-height: 1.55;
+}
+
+/* Tarjetas KPI y tarjetas de resumen de calidad */
+.app-shell .main-content .metric-card p {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 700;
+}
+
+.app-shell .main-content .metric-card strong {
+  font-family: var(--font-heading);
+  font-size: 1.875rem; /* 30px */
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.app-shell .main-content .quality-side-note > div > strong,
+.app-shell .main-content .quality-method-note strong {
+  font-family: var(--font-heading);
+  font-size: 1rem; /* 16px · "Estabilidad sostenida" */
+  font-weight: 800;
+}
+
+.app-shell .main-content .quality-score-badge,
+.app-shell .main-content .quality-score-meta span,
+.app-shell .main-content .quality-note-foot span,
+.app-shell .main-content .quality-note-foot strong,
+.app-shell .main-content .gauge-center small {
+  font-family: var(--font-body);
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.4;
+}
+
+.app-shell .main-content .gauge-scale span {
+  font-family: var(--font-body);
+  font-size: 0.75rem; /* 12px · Escala 0 - 100 */
+}
+
+/* Alineación de escala 0 - 100 bajo el gráfico circular de calidad */
+.app-shell .main-content .quality-gauge-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: end;
+}
+
+.app-shell .main-content .quality-gauge-wrap .gauge-scale {
+  position: static;
+  inset: auto;
+  grid-column: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.375rem;
+  padding: 0 0.25rem;
+}
+
+/* Tablas y auditoría por dataset */
+.app-shell .main-content table th {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.app-shell .main-content table td {
+  font-family: var(--font-body);
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.5;
+}
+
+.app-shell .main-content .audit-source strong {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem; /* 15px · Nombre de fuente */
+  font-weight: 700;
+}
+
+.app-shell .main-content .audit-source span,
+.app-shell .main-content .quality-status,
+.app-shell .main-content .table-footer span,
+.app-shell .main-content .table-footer button {
+  font-family: var(--font-body);
+  font-size: 0.8125rem; /* 13px · Periodicidad, estado "En línea" y pie */
+  line-height: 1.45;
+}
+
+/* Botones, controles, miga de pan y formularios */
+.app-shell button,
+.app-shell .primary-button,
+.app-shell .outline-button,
+.app-shell .apply-button,
+.app-shell .logout-button,
+.app-shell .subtle-filter-button {
+  font-family: var(--font-heading);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 700;
+}
+
+.app-shell .subtle-filter-button {
+  font-size: 0.8125rem; /* 13px */
+}
+
+.app-shell input,
+.app-shell select {
+  font-family: var(--font-body);
+  font-size: 0.875rem; /* 14px */
+}
+
+.app-shell .gov-breadcrumb,
+.app-shell .gov-breadcrumb a,
+.app-shell .gov-breadcrumb span {
+  font-family: var(--font-body);
+  font-size: 0.875rem; /* 14px */
+}
+
+/* Etiquetas superiores (eyebrow) y textos auxiliares */
+.app-shell .eyebrow,
+.app-shell .supported-files,
+.app-shell .live-meta,
+.app-shell .data-demo-label,
+.app-shell .metric-trend {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   Estándar GOV.CO v9.2 y Accesibilidad en Pantalla de Acceso (.login-screen)
+   ========================================================================== */
+/* Emblema RNI en azul institucional GOV.CO (#0943B5) con texto blanco nítido */
+.login-screen .brand > span:first-child,
+.login-screen .brand > div:first-child:not(:has(strong)),
+.login-screen .brand [class*="mark"],
+.login-screen .brand [class*="badge"],
+.login-screen .brand [class*="emblem"],
+.login-screen .brand [class*="icon"],
+.login-screen .brand [class*="logo"] {
+  background: var(--gov-cobalt) !important;
+  background-color: var(--gov-cobalt) !important;
+  color: #ffffff !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 800 !important;
+}
+
+.login-screen .brand > span:first-child *,
+.login-screen .brand > div:first-child:not(:has(strong)) *,
+.login-screen .brand [class*="mark"] *,
+.login-screen .brand [class*="badge"] *,
+.login-screen .brand [class*="emblem"] *,
+.login-screen .brand [class*="icon"] *,
+.login-screen .brand [class*="logo"] * {
+  color: #ffffff !important;
+}
+
+.login-screen .brand strong {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 800;
+}
+
+/* Subtítulo "Unidad para las Víctimas" sin afectar las siglas RNI */
+.login-screen .brand div span,
+.login-screen .brand strong + span,
+.login-screen .secure-indicator {
+  font-family: var(--font-body);
+  font-size: 0.8125rem; /* 13px */
+  color: var(--gov-text-muted);
+}
+
+.login-screen .login-symbol {
+  background-color: var(--gov-cobalt-soft);
+  color: var(--gov-cobalt);
+}
+
+.login-screen .eyebrow {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 800;
+  color: var(--gov-cobalt);
+}
+
+.login-screen h1 {
+  font-family: var(--font-heading);
+  font-size: 1.875rem; /* 30px */
+  font-weight: 800;
+  color: var(--gov-text-primary);
+}
+
+.login-screen .login-intro p,
+.login-screen .login-legal p {
+  font-family: var(--font-body);
+  font-size: 0.875rem; /* 14px · Verdana legible */
+  line-height: 1.55;
+  color: var(--gov-text-muted);
+}
+
+.login-screen .field-label,
+.login-screen legend.field-label,
+.login-screen .login-legal strong {
+  font-family: var(--font-heading);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 700;
+  color: var(--gov-text-primary);
+}
+
+.login-screen .text-button {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 700;
+  color: var(--gov-cobalt);
+}
+
+.login-screen .input-shell input {
+  font-family: var(--font-body);
+  font-size: 0.875rem; /* 14px */
+}
+
+/* Selector de perfil con contraste AAA (#0943B5 + visto blanco #FFFFFF) */
+.login-screen .role-option {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 600;
+  color: var(--gov-text-primary);
+}
+
+.login-screen .role-option.selected {
+  border-color: var(--gov-cobalt) !important;
+  background-color: var(--gov-cobalt-tint) !important;
+  font-weight: 800;
+}
+
+.login-screen .role-option .role-check {
+  border: 1.5px solid #8c9ba5;
+  background-color: #ffffff;
+}
+
+.login-screen .role-option.selected .role-check {
+  background-color: var(--gov-cobalt) !important;
+  border-color: var(--gov-cobalt) !important;
+  color: #ffffff !important;
+}
+
+.login-screen .role-option.selected .role-check svg {
+  color: #ffffff !important;
+}
+
+.login-screen .login-submit {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 700;
+  background-color: var(--gov-cobalt);
+}
+
+.login-screen .login-footnote,
+.login-screen .login-footnote span {
+  font-family: var(--font-body);
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.45;
+  color: var(--gov-text-muted);
+}
+
+/* ==========================================================================
+   Modo Alto Contraste Accesible (WCAG 2.1 AAA · Fondo #000000)
+   ========================================================================== */
+html.gov-high-contrast,
+html.gov-high-contrast body,
+html.gov-high-contrast .app-shell,
+html.gov-high-contrast .app-frame,
+html.gov-high-contrast .main-content,
+html.gov-high-contrast .sidebar,
+html.gov-high-contrast .topbar,
+html.gov-high-contrast .gov-footer,
+html.gov-high-contrast .gov-footer-card,
+html.gov-high-contrast .login-screen,
+html.gov-high-contrast .login-screen .login-backdrop,
+html.gov-high-contrast .login-screen .login-card {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html.gov-high-contrast .topbar,
+html.gov-high-contrast .sidebar,
+html.gov-high-contrast .gov-footer,
+html.gov-high-contrast .login-screen .login-card {
+  border-color: #ffffff !important;
+}
+
+/* 1. Contenedores, tarjetas, paneles, cajas de carga, mapas y modales */
+html.gov-high-contrast .app-shell .main-content section,
+html.gov-high-contrast .app-shell .main-content article,
+html.gov-high-contrast .panel,
+html.gov-high-contrast .metric-card,
+html.gov-high-contrast .gov-file-upload-box,
+html.gov-high-contrast .gov-file-input-group,
+html.gov-high-contrast .gov-file-name-display,
+html.gov-high-contrast .gov-uploaded-pill,
+html.gov-high-contrast .privacy-banner,
+html.gov-high-contrast .privacy-banner-stats > div,
+html.gov-high-contrast .exception-modal,
+html.gov-high-contrast .exception-summary > div,
+html.gov-high-contrast .exception-list,
+html.gov-high-contrast .modal-privacy,
+html.gov-high-contrast .search-popover,
+html.gov-high-contrast .map-card,
+html.gov-high-contrast .map-toolbar,
+html.gov-high-contrast .map-canvas,
+html.gov-high-contrast .map-tooltip,
+html.gov-high-contrast .map-legend,
+html.gov-high-contrast .zoom-tools,
+html.gov-high-contrast .layer-switch,
+html.gov-high-contrast .login-screen .login-legal,
+html.gov-high-contrast .login-screen .input-shell,
+html.gov-high-contrast .login-screen .role-option,
+html.gov-high-contrast .app-shell .main-content [class*="card"],
+html.gov-high-contrast .app-shell .main-content [class*="panel"],
+html.gov-high-contrast .app-shell .main-content [class*="banner"],
+html.gov-high-contrast .app-shell .main-content [class*="note"],
+html.gov-high-contrast .app-shell .main-content [class*="rule"],
+html.gov-high-contrast .app-shell .main-content [class*="threshold"],
+html.gov-high-contrast .app-shell .main-content [class*="target"] {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* 2. Textos generales */
+html.gov-high-contrast h1,
+html.gov-high-contrast h2,
+html.gov-high-contrast h3,
+html.gov-high-contrast p,
+html.gov-high-contrast span,
+html.gov-high-contrast strong,
+html.gov-high-contrast small,
+html.gov-high-contrast label,
+html.gov-high-contrast legend,
+html.gov-high-contrast td {
+  color: #ffffff !important;
+}
+
+/* 3. Enlaces, miga de pan y acciones textuales en amarillo alto contraste */
+html.gov-high-contrast a,
+html.gov-high-contrast .eyebrow,
+html.gov-high-contrast .table-action,
+html.gov-high-contrast .tooltip-link,
+html.gov-high-contrast .trend-foot button,
+html.gov-high-contrast .privacy-footnote button,
+html.gov-high-contrast .clear-link,
+html.gov-high-contrast .gov-breadcrumb a,
+html.gov-high-contrast .login-screen .text-button,
+html.gov-high-contrast .app-shell .table-footer button,
+html.gov-high-contrast .app-shell .table-footer a,
+html.gov-high-contrast .app-shell .main-content [class*="note"] button,
+html.gov-high-contrast .app-shell .main-content [class*="rule"] button,
+html.gov-high-contrast .app-shell .main-content [class*="banner"] button {
+  background: transparent !important;
+  color: #ffab00 !important;
+}
+
+/* 4. Barra lateral (tarjetas superior/inferior, menú, filtros y botones) */
+html.gov-high-contrast .app-shell .sidebar > div,
+html.gov-high-contrast .app-shell .sidebar > button,
+html.gov-high-contrast .app-shell .sidebar [class*="card"],
+html.gov-high-contrast .app-shell .sidebar [class*="scope"],
+html.gov-high-contrast .app-shell .sidebar [class*="workspace"],
+html.gov-high-contrast .app-shell .sidebar [class*="privacy"],
+html.gov-high-contrast .app-shell .sidebar [class*="protected"] {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+html.gov-high-contrast .app-shell .sidebar [class*="card"] *,
+html.gov-high-contrast .app-shell .sidebar [class*="scope"] *,
+html.gov-high-contrast .app-shell .sidebar [class*="workspace"] *,
+html.gov-high-contrast .app-shell .sidebar [class*="privacy"] *,
+html.gov-high-contrast .app-shell .sidebar [class*="protected"] *,
+html.gov-high-contrast .app-shell .sidebar p,
+html.gov-high-contrast .app-shell .sidebar span,
+html.gov-high-contrast .app-shell .sidebar small,
+html.gov-high-contrast .app-shell .sidebar label {
+  color: #ffffff !important;
+}
+
+html.gov-high-contrast .app-shell .sidebar [class*="icon"],
+html.gov-high-contrast .app-shell .sidebar [class*="emblem"],
+html.gov-high-contrast .app-shell .sidebar [class*="mark"],
+html.gov-high-contrast .login-screen .brand > span:first-child,
+html.gov-high-contrast .login-screen .brand > div:first-child:not(:has(strong)),
+html.gov-high-contrast .login-screen .brand [class*="mark"],
+html.gov-high-contrast .login-screen .brand [class*="badge"],
+html.gov-high-contrast .login-screen .brand [class*="emblem"],
+html.gov-high-contrast .login-screen .brand [class*="icon"],
+html.gov-high-contrast .login-screen .brand [class*="logo"],
+html.gov-high-contrast .login-screen .login-symbol,
+html.gov-high-contrast .login-screen .legal-icon {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  border: 1.5px solid #ffab00 !important;
+  color: #ffab00 !important;
+}
+
+html.gov-high-contrast .login-screen .brand > span:first-child *,
+html.gov-high-contrast .login-screen .brand > div:first-child:not(:has(strong)) *,
+html.gov-high-contrast .login-screen .brand [class*="mark"] *,
+html.gov-high-contrast .login-screen .brand [class*="badge"] *,
+html.gov-high-contrast .login-screen .brand [class*="emblem"] *,
+html.gov-high-contrast .login-screen .brand [class*="icon"] *,
+html.gov-high-contrast .login-screen .brand [class*="logo"] * {
+  color: #ffab00 !important;
+}
+
+html.gov-high-contrast .app-shell .sidebar svg,
+html.gov-high-contrast .login-screen .login-symbol svg,
+html.gov-high-contrast .login-screen .legal-icon svg {
+  color: #ffab00 !important;
+}
+
+html.gov-high-contrast .app-shell .sidebar .nav-item.active {
+  background: #ffab00 !important;
+  color: #000000 !important;
+}
+
+html.gov-high-contrast .app-shell .sidebar .nav-item.active span,
+html.gov-high-contrast .app-shell .sidebar .nav-item.active svg,
+html.gov-high-contrast .app-shell .sidebar .apply-button svg {
+  color: #000000 !important;
+}
+
+html.gov-high-contrast .app-shell .sidebar .nav-badge {
+  background: #000000 !important;
+  color: #ffab00 !important;
+  border: 1px solid #ffab00 !important;
+}
+
+html.gov-high-contrast .app-shell .sidebar button:not(.nav-item):not(.apply-button) {
+  background: #000000 !important;
+  color: #ffab00 !important;
+}
+
+/* 5. Etiquetas, badges, filtros y píldoras informativas */
+html.gov-high-contrast .supported-files,
+html.gov-high-contrast .live-meta,
+html.gov-high-contrast .data-demo-label,
+html.gov-high-contrast .privacy-banner-status,
+html.gov-high-contrast .gov-footer-pill,
+html.gov-high-contrast .metric-trend,
+html.gov-high-contrast .trend-pill,
+html.gov-high-contrast .filter-applied-note,
+html.gov-high-contrast .privacy-footnote,
+html.gov-high-contrast .app-shell .main-content [class*="pill"],
+html.gov-high-contrast .app-shell .main-content [class*="badge"],
+html.gov-high-contrast .app-shell .main-content [class*="tag"],
+html.gov-high-contrast .app-shell .main-content [class*="chip"],
+html.gov-high-contrast .app-shell .main-content [class*="filter"] {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  color: #ffab00 !important;
+  border: 1.5px solid #ffab00 !important;
+}
+
+html.gov-high-contrast .app-shell .main-content [class*="pill"] *,
+html.gov-high-contrast .app-shell .main-content [class*="badge"] *,
+html.gov-high-contrast .app-shell .main-content [class*="filter"] * {
+  color: #ffab00 !important;
+}
+
+/* Etiquetas de estado en tabla (Exitoso / Ajustado / Falla) */
+html.gov-high-contrast .status-pill {
+  background: #000000 !important;
+  border: 1.5px solid #ffffff !important;
+}
+html.gov-high-contrast .status-success,
+html.gov-high-contrast .status-success * {
+  color: #5ef2c0 !important;
+  border-color: #5ef2c0 !important;
+}
+html.gov-high-contrast .status-warning,
+html.gov-high-contrast .status-warning * {
+  color: #ffab00 !important;
+  border-color: #ffab00 !important;
+}
+html.gov-high-contrast .status-error,
+html.gov-high-contrast .status-error * {
+  color: #ff7a8a !important;
+  border-color: #ff7a8a !important;
+}
+
+/* 6. Tablas y listados (<tr> o <div>) en reposo y al pasar el cursor (:hover) */
+html.gov-high-contrast .data-table thead th,
+html.gov-high-contrast .etl-table thead th,
+html.gov-high-contrast .exception-list-head,
+html.gov-high-contrast .app-shell .main-content th {
+  background: #141414 !important;
+  background-color: #141414 !important;
+  color: #ffab00 !important;
+  border-bottom: 1.5px solid #ffffff !important;
+}
+
+html.gov-high-contrast .app-shell .main-content tr,
+html.gov-high-contrast .app-shell .main-content td,
+html.gov-high-contrast .app-shell .main-content [class*="row"],
+html.gov-high-contrast .app-shell .main-content [class*="table"] > div {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+html.gov-high-contrast .app-shell .main-content tr:hover,
+html.gov-high-contrast .app-shell .main-content tr:hover > td,
+html.gov-high-contrast .app-shell .main-content tr:hover > th,
+html.gov-high-contrast .app-shell .main-content [class*="row"]:hover,
+html.gov-high-contrast .app-shell .main-content [class*="row"]:hover > div,
+html.gov-high-contrast .app-shell .main-content [class*="table"] > div:hover {
+  background: #1f1f1f !important;
+  background-color: #1f1f1f !important;
+  color: #ffffff !important;
+}
+
+/* 7. Gráficos circulares (dona SVG o CSS) y recuadros de íconos */
+html.gov-high-contrast .app-shell .main-content [class*="gauge"] > div,
+html.gov-high-contrast .app-shell .main-content [class*="ring"] > div,
+html.gov-high-contrast .app-shell .main-content [class*="donut"] > div,
+html.gov-high-contrast .app-shell .main-content [class*="center"],
+html.gov-high-contrast .app-shell .main-content [class*="hole"],
+html.gov-high-contrast .app-shell .main-content [class*="gauge"]::after,
+html.gov-high-contrast .app-shell .main-content [class*="ring"]::after,
+html.gov-high-contrast .app-shell .main-content [class*="donut"]::after {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html.gov-high-contrast .app-shell .main-content svg circle[fill="#ffffff" i],
+html.gov-high-contrast .app-shell .main-content svg circle[fill="#fff" i],
+html.gov-high-contrast .app-shell .main-content svg rect[fill="#ffffff" i],
+html.gov-high-contrast .app-shell .main-content svg rect[fill="#fff" i] {
+  fill: #000000 !important;
+}
+
+html.gov-high-contrast .app-shell .main-content [class*="icon"] {
+  background: #000000 !important;
+  color: #ffab00 !important;
+  border: 1px solid #ffab00 !important;
+}
+
+html.gov-high-contrast .app-shell .main-content [class*="icon"] svg {
+  color: #ffab00 !important;
+}
+
+/* 8. Inputs, selects, selector de perfil en Login y botones */
+html.gov-high-contrast input,
+html.gov-high-contrast select,
+html.gov-high-contrast .global-search-wrap,
+html.gov-high-contrast .select-shell {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 1.5px solid #ffffff !important;
+}
+
+html.gov-high-contrast .login-screen .role-option.selected {
+  border-color: #ffab00 !important;
+}
+
+html.gov-high-contrast .login-screen .role-option.selected .role-check {
+  background-color: #ffab00 !important;
+  border-color: #ffab00 !important;
+  color: #000000 !important;
+}
+
+html.gov-high-contrast .login-screen .role-option.selected .role-check svg {
+  color: #000000 !important;
+}
+
+html.gov-high-contrast .primary-button,
+html.gov-high-contrast .app-shell .main-content .gov-file-select-btn,
+html.gov-high-contrast .apply-button,
+html.gov-high-contrast .layer-switch button.selected,
+html.gov-high-contrast .login-screen .login-submit {
+  background: #ffab00 !important;
+  background-color: #ffab00 !important;
+  color: #000000 !important;
+  border: 1.5px solid #ffab00 !important;
+}
+
+html.gov-high-contrast .primary-button *,
+html.gov-high-contrast .app-shell .main-content .gov-file-select-btn *,
+html.gov-high-contrast .apply-button *,
+html.gov-high-contrast .login-screen .login-submit * {
+  color: #000000 !important;
+}
+
+html.gov-high-contrast .primary-button:disabled {
+  background: #1f1f1f !important;
+  color: #bdbdbd !important;
+  border: 1.5px solid #757575 !important;
+}
+html.gov-high-contrast .primary-button:disabled * {
+  color: #bdbdbd !important;
+}
+
+html.gov-high-contrast .outline-button,
+html.gov-high-contrast .gov-back-to-top,
+html.gov-high-contrast .period-button,
+html.gov-high-contrast .more-button,
+html.gov-high-contrast .logout-button,
+html.gov-high-contrast .app-shell .main-content button:not(.primary-button):not(.apply-button):not(.selected):not(.gov-file-select-btn) {
+  background: #000000 !important;
+  color: #ffab00 !important;
+  border: 1.5px solid #ffab00 !important;
+}
+
+html.gov-high-contrast .app-shell .main-content button:not(.primary-button):not(.apply-button):not(.selected):not(.gov-file-select-btn) svg {
+  color: #ffab00 !important;
+}
+
+/* 9. Barra flotante de accesibilidad (Contraste, A-, A+) */
+html.gov-high-contrast .gov-a11y-bar {
+  background: #000000 !important;
+  border: 1.5px solid #ffffff !important;
+}
+html.gov-high-contrast .gov-a11y-btn {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+html.gov-high-contrast .gov-a11y-btn span,
+html.gov-high-contrast .gov-a11y-btn svg {
+  color: #ffffff !important;
+}
+html.gov-high-contrast .gov-a11y-btn.active {
+  background: #ffab00 !important;
+}
+html.gov-high-contrast .gov-a11y-btn.active span,
+html.gov-high-contrast .gov-a11y-btn.active svg {
+  color: #000000 !important;
+}
+
+/* ==========================================================================
+   RITE & WCAG AAA: Textos Secundarios, Tooltips y Escalado Fluido (A+)
+   ========================================================================== */
+
+/* 1. Buscador superior en Alto Contraste */
+html.gov-high-contrast input::placeholder,
+html.gov-high-contrast textarea::placeholder {
+  color: #ffffff !important;
+  opacity: 0.9 !important;
+}
+
+html.gov-high-contrast .global-search-wrap button,
+html.gov-high-contrast .topbar form button,
+html.gov-high-contrast .topbar [class*="search"] button {
+  background: #ffab00 !important;
+  background-color: #ffab00 !important;
+  color: #000000 !important;
+  border: 1.5px solid #ffab00 !important;
+}
+
+html.gov-high-contrast .global-search-wrap button svg,
+html.gov-high-contrast .topbar form button svg,
+html.gov-high-contrast .topbar [class*="search"] button svg {
+  color: #000000 !important;
+}
+
+/* 2. Miga de pan actual ("> Visor GIS") en Alto Contraste */
+html.gov-high-contrast .gov-breadcrumb,
+html.gov-high-contrast .gov-breadcrumb span,
+html.gov-high-contrast .gov-breadcrumb li,
+html.gov-high-contrast [aria-label*="miga" i] span,
+html.gov-high-contrast [aria-label*="breadcrumb" i] span {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* 3. Nota inferior del mapa y textos SVG en Alto Contraste */
+html.gov-high-contrast .map-canvas span,
+html.gov-high-contrast .map-canvas p,
+html.gov-high-contrast .map-canvas small,
+html.gov-high-contrast .map-card [class*="source"],
+html.gov-high-contrast .map-card [class*="footnote"],
+html.gov-high-contrast .map-card [class*="caption"],
+html.gov-high-contrast .map-card [class*="attribution"],
+html.gov-high-contrast .app-shell svg text,
+html.gov-high-contrast .app-shell svg tspan {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* 4. Pie de la barra lateral ("Prototipo de demostración") en Alto Contraste */
+html.gov-high-contrast .sidebar-version,
+html.gov-high-contrast .sidebar-version *,
+html.gov-high-contrast .app-shell .sidebar footer,
+html.gov-high-contrast .app-shell .sidebar footer *,
+html.gov-high-contrast .app-shell .sidebar [class*="version"],
+html.gov-high-contrast .app-shell .sidebar [class*="foot"] {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* 5. Escalado fluido (A+) en controles de zoom (+ 100% -) */
+.map-toolbar {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.zoom-tools {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.35rem !important;
+  width: auto !important;
+  min-width: fit-content !important;
+  max-width: none !important;
+  height: auto !important;
+  padding: 0.25rem 0.65rem !important;
+  flex-shrink: 0 !important;
+}
+
+.zoom-tools button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  min-width: 1.5rem !important;
+  height: 1.5rem !important;
+  padding: 0 0.2rem !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
+}
+
+.zoom-tools .zoom-percent-btn {
+  min-width: 3.1rem !important;
+  padding: 0 0.25rem !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+}
+
+/* 6. Escalado fluido (A+) en tarjeta del municipio y leyenda del mapa */
+.map-tooltip {
+  width: auto !important;
+  min-width: 17.5rem !important;
+  max-width: min(23rem, calc(100% - 2rem)) !important;
+}
+
+.map-tooltip .tooltip-metrics > div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1rem !important;
+}
+
+.map-tooltip .tooltip-metrics > div > span {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+}
+
+.map-tooltip .tooltip-metrics > div > strong {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+.map-legend {
+  width: auto !important;
+  min-width: 14.5rem !important;
+  max-width: min(20rem, calc(100% - 2rem)) !important;
+}
+
+.map-legend .legend-head,
+.map-legend > div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0.75rem !important;
+}
+
+/* Solo el subtítulo "% no cubierta" queda en una línea, no el tooltip */
+.map-legend small,
+.map-legend .legend-head > span {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+/* 7. Área interactiva completa del mapa (arrastre y rueda en todo el lienzo) */
+.map-canvas {
+  position: relative;
+  overflow: hidden;
+}
+
+.colombia-map,
+.colombia-map-pan,
+.colombia-map-stage {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.colombia-map {
+  cursor: grab !important;
+}
+
+.colombia-map.is-grabbing,
+.colombia-map.is-grabbing * {
+  cursor: grabbing !important;
+}
+
+.colombia-map svg path {
+  cursor: pointer;
+}
+
+.colombia-map.is-grabbing svg path {
+  cursor: grabbing !important;
+}
+
+.map-coordinates,
+.map-source-stamp,
+.map-attribution,
+.map-island-dot,
+.map-island-label {
+  pointer-events: none !important;
+}
+
+/* 8. Blindaje definitivo de salto de línea y contraste en tooltips explicativos */
+.gov-tooltip-popover,
+.gov-tooltip-popover *,
+.map-legend .gov-tooltip-popover,
+.map-legend .gov-tooltip-popover *,
+.map-tooltip .gov-tooltip-popover,
+.map-tooltip .gov-tooltip-popover * {
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+}
+
+.gov-tooltip-popover .gov-tooltip-title {
+  color: #ffffff !important;
+}
+
+html.gov-high-contrast .gov-tooltip-trigger {
+  color: #ffab00 !important;
+}
+
+html.gov-high-contrast .gov-tooltip-popover {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 1.5px solid #ffab00 !important;
+}
+
+html.gov-high-contrast .gov-tooltip-popover .gov-tooltip-title {
+  color: #ffab00 !important;
+}
+
+html.gov-high-contrast .gov-tooltip-popover .gov-tooltip-desc {
+  color: #ffffff !important;
+}
+/* ==========================================================================
+   Botón unificado de descarga por fila en tablas (/etl y /calidad)
+   ========================================================================== */
+.gov-row-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border-radius: var(--radius-sm, 8px);
+  border: 1px solid var(--gov-border, #d0d7de);
+  background-color: var(--gov-surface, #ffffff);
+  color: var(--gov-text-primary, #1b2a4a);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.gov-row-download-btn:hover,
+.gov-row-download-btn:focus-visible {
+  background-color: var(--gov-cobalt-tint, #f4f7fd);
+  border-color: var(--gov-cobalt, #0943b5);
+  color: var(--gov-cobalt, #0943b5);
+}
+
+html.gov-high-contrast .gov-row-download-btn {
+  background-color: #000000 !important;
+  border: 1.5px solid #ffab00 !important;
+  color: #ffab00 !important;
+}
+
+html.gov-high-contrast .gov-row-download-btn:hover,
+html.gov-high-contrast .gov-row-download-btn:focus-visible {
+  background-color: #ffab00 !important;
+  color: #000000 !important;
+}
+
+html.gov-high-contrast .gov-row-download-btn:hover svg,
+html.gov-high-contrast .gov-row-download-btn:focus-visible svg {
+  color: #000000 !important;
+}
+/* ==========================================================================
+   Tablas Responsivas: Deslizamiento horizontal táctil en móvil (/etl y /calidad)
+   ========================================================================== */
+.app-shell .main-content .panel {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.app-shell .main-content .table-scroll {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto !important;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gov-cobalt, #0943b5) var(--gov-cobalt-tint, #f4f7fd);
+  padding-bottom: 0.375rem;
+}
+
+.app-shell .main-content .table-scroll::-webkit-scrollbar {
+  height: 0.45rem;
+}
+
+.app-shell .main-content .table-scroll::-webkit-scrollbar-track {
+  background: var(--gov-cobalt-tint, #f4f7fd);
+  border-radius: 9999px;
+}
+
+.app-shell .main-content .table-scroll::-webkit-scrollbar-thumb {
+  background: var(--gov-cobalt, #0943b5);
+  border-radius: 9999px;
+}
+
+/* Mantiene el ancho completo en escritorio y activa el scroll sin aplastar columnas en celular */
+.app-shell .main-content .table-scroll > table.data-table {
+  width: 100%;
+  min-width: 50rem;
+  border-collapse: collapse;
+}
+
+/* Indicador visual fijo y ajuste de cabecera/pie en pantallas móviles y tablet */
+@media (max-width: 900px) {
+  .app-shell .main-content .table-scroll::before {
+    content: "Desliza la tabla hacia los lados para ver todas las columnas ↔";
+    position: sticky;
+    left: 0;
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--gov-cobalt, #0943b5);
+    background-color: var(--gov-cobalt-tint, #f4f7fd);
+    border: 1px solid var(--gov-cobalt-soft, #e6effd);
+    border-radius: 6px;
+    padding: 0.25rem 0.625rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .app-shell .main-content .panel-header,
+  .app-shell .main-content .table-footer {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+}
+
+/* Compatibilidad con Modo Alto Contraste (WCAG AAA) */
+html.gov-high-contrast .app-shell .main-content .table-scroll {
+  scrollbar-color: #ffab00 #141414;
+}
+
+html.gov-high-contrast .app-shell .main-content .table-scroll::-webkit-scrollbar-track {
+  background: #141414;
+}
+
+html.gov-high-contrast .app-shell .main-content .table-scroll::-webkit-scrollbar-thumb {
+  background: #ffab00;
+}
+
+@media (max-width: 900px) {
+  html.gov-high-contrast .app-shell .main-content .table-scroll::before {
+    background-color: #000000 !important;
+    color: #ffab00 !important;
+    border: 1.5px solid #ffab00 !important;
+  }
 }

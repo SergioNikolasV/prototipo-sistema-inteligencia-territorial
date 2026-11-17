@@ -1,5 +1,11 @@
-import { ArrowUpRight, ShieldCheck } from "lucide-react"
+import { GovArrowUpRightIcon, GovShieldCheckIcon } from "./govco-icons"
 
 export function PrivacyFootnote({ message, action }: { message: string; action: string }) {
-  return <div className="privacy-footnote"><ShieldCheck size={14} /><span>{message}</span><button type="button">{action} <ArrowUpRight size={12} /></button></div>
+  return (
+    <div className="privacy-footnote">
+      <GovShieldCheckIcon size={16} />
+      <span>{message}</span>
+      <button type="button">{action} <GovArrowUpRightIcon size={13} /></button>
+    </div>
+  )
 }
