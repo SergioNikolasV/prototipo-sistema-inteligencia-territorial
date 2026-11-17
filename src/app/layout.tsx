@@ -1,10 +1,18 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { Nunito_Sans } from 'next/font/google'
 import '@/styles/globals.css'
 import { SessionProvider } from '@/presentation/providers/SessionProvider'
 
+const nunitoSans = Nunito_Sans({
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '800'],
+  variable: '--font-nunito-sans',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
-  title: 'RNI · Inteligencia Territorial',
+  title: 'RNI · Inteligencia Territorial | GOV.CO',
   description: 'Sistema de análisis agregado de brechas territoriales para la Red Nacional de Información de Colombia.',
   generator: 'v0.app',
   icons: {
@@ -28,7 +36,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'light',
-  themeColor: '#0F2C59',
+  themeColor: '#0943B5',
 }
 
 export default function RootLayout({
@@ -37,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" className={nunitoSans.variable}>
       <body className="antialiased">
         <SessionProvider>{children}</SessionProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}

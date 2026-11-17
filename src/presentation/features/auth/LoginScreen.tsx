@@ -2,10 +2,17 @@
 
 import { useState, type FormEvent } from "react"
 import { useRouter } from "next/navigation"
-import { ArrowRight, Check, Globe2, LockKeyhole, ShieldCheck, UsersRound } from "lucide-react"
 import { DEFAULT_ROLE, ROLES, type Role } from "@/domain/auth/role"
 import { useSession } from "../../providers/SessionProvider"
 import { Brand } from "../../shared/Brand"
+import {
+  GovArrowRightIcon,
+  GovCheckIcon,
+  GovGlobeIcon,
+  GovLockIcon,
+  GovShieldCheckIcon,
+  GovUserIcon,
+} from "../../shared/govco-icons"
 
 const HOME_ROUTE = "/mapa"
 
@@ -37,7 +44,7 @@ export function LoginScreen() {
         </div>
         <section className="login-card" aria-labelledby="login-title">
           <div className="login-intro">
-            <div className="login-symbol"><Globe2 size={24} strokeWidth={1.8} /></div>
+            <div className="login-symbol"><GovGlobeIcon size={24} /></div>
             <p className="eyebrow">SISTEMA DE INTELIGENCIA TERRITORIAL</p>
             <h1 id="login-title">Bienvenido a la RNI</h1>
             <p>Consulta información agregada para orientar decisiones que transforman los territorios.</p>
@@ -45,7 +52,7 @@ export function LoginScreen() {
           <form className="login-form" onSubmit={handleSubmit}>
             <label className="field-label" htmlFor="login-email">Usuario / Correo</label>
             <div className="input-shell">
-              <UsersRound size={17} aria-hidden="true" />
+              <GovUserIcon size={17} />
               <input id="login-email" autoComplete="username" placeholder="nombre@entidad.gov.co" value={email} onChange={(event) => setEmail(event.target.value)} />
             </div>
             <div className="label-row">
@@ -55,7 +62,7 @@ export function LoginScreen() {
               </button>
             </div>
             <div className="input-shell">
-              <LockKeyhole size={17} aria-hidden="true" />
+              <GovLockIcon size={17} />
               <input id="login-password" type={showPassword ? "text" : "password"} autoComplete="current-password" placeholder="Ingresa tu contraseña" value={password} onChange={(event) => setPassword(event.target.value)} />
             </div>
             <fieldset className="role-fieldset">
@@ -63,18 +70,18 @@ export function LoginScreen() {
               <div className="role-options">
                 {ROLES.map((item) => (
                   <button type="button" key={item} className={`role-option ${role === item ? "selected" : ""}`} onClick={() => setRole(item)} aria-pressed={role === item}>
-                    <span className="role-check">{role === item && <Check size={12} />}</span>
+                    <span className="role-check">{role === item && <GovCheckIcon size={12} />}</span>
                     <span>{item}</span>
                   </button>
                 ))}
               </div>
             </fieldset>
             <button className="primary-button login-submit" type="submit">
-              Iniciar sesión <ArrowRight size={17} />
+              Iniciar sesión <GovArrowRightIcon size={17} />
             </button>
           </form>
           <div className="login-legal">
-            <div className="legal-icon"><ShieldCheck size={17} /></div>
+            <div className="legal-icon"><GovShieldCheckIcon size={17} /></div>
             <div>
               <strong>Privacidad desde el diseño</strong>
               <p>Este prototipo no autentica ni almacena credenciales o datos personales.</p>
@@ -82,7 +89,7 @@ export function LoginScreen() {
           </div>
         </section>
         <div className="login-footnote">
-          <span><LockKeyhole size={13} /> La plataforma institucional debe usar TLS 1.3 y autenticación JWT.</span>
+          <span><GovLockIcon size={14} /> La plataforma institucional debe usar TLS 1.3 y autenticación JWT.</span>
           <span>© 2025 · Información agregada y anonimizada</span>
         </div>
       </div>
